@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 
 
 line_width = 1.0
-label_length = 0.2
-label_width = 3.0
+label_length = 0.25
+label_width = 2.0
 
 
 def solve(xco, yco):
@@ -41,14 +41,19 @@ def draw_mep(x, y, color, **kwargs):
 
 
 def main():
-    state = [1, 2, 3, 4, 5, 6]
-    energy1 = [0.0, 26.6, 16.7, 25.5, 26.5, 10.0]
-    energy2 = [0.0, 28.6, 15.7, 27.5, 30.5, 11.0]
+    state12 = [1, 2, 3, 4, 5, 6]
+    energy1 = [0.0, 28.7, 17.4, 27.8, 28.6, 8.6]
+    energy2 = [0.0, 30.4, 15.8, 30.3, 30.4, 7.8]
+    state34 = [1, 2, 4, 5, 6]
+    energy3 = [0.0, 29.8, 29.0, 31.5, 13.6]
+    energy4 = [0.0, 27.8, 26.5, 30.8, 13.7]
     state_label = ["R", "TS1", "IM1", "IM2", "TS2", "P"]
     plt.figure(figsize=(7,4))
-    draw_mep(state, energy2, "red", label="cat-2")
-    draw_mep(state, energy1, "blue", label="cat-1")
-    plt.xticks(state, state_label)
+    draw_mep(state12, energy1, "black", label="cat-1")
+    draw_mep(state12, energy2, "red", label="cat-2")
+    draw_mep(state34, energy3, "blue", label="cat-3")
+    draw_mep(state34, energy4, "green", label="cat-4")
+    plt.xticks(state12, state_label)
     plt.legend()
     plt.show()
 
